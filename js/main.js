@@ -1,21 +1,37 @@
-// Ejemplo aplicado
 const suma = (a, b) => {return a + b};
 const resta = (a, b) => {return a - b};
-const cuota3 = (valor) => {return valor * 0.25};
-const cuota6 = (valor) => {return valor * 0.45};
-const cuota12 = (valor) => {return valor * 0.75};
+const cuotas3 = (valor) => {return valor * 0.25};
+const cuotas6 = (valor) => {return valor * 0.50};
+const cuotas12 = (valor) => {return valor * 0.75};
 const iva = (valor) => {return valor * 0.21};
-//Valores por defecto
-let precioProducto = 1000;
+
+let precioProducto = 200000;
 const descuento = (valor) => {return valor * 0.10};
 
-console.log("El valor del Producto es: $" + precioProducto);
+console.log(`El valor del Producto es: $` + precioProducto);
 let ivaProducto = iva(precioProducto);
-console.log("El IVA del Producto es: $" + ivaProducto);
+console.log(`El IVA del Producto es: $` + ivaProducto);
 let sumaCalculo = suma(precioProducto, ivaProducto);
-console.log("La suma del Producto más IVA es: $" + sumaCalculo);
+console.log(`La suma del Producto más IVA es: $` + sumaCalculo);
+let cuotas3Producto = cuotas3(sumaCalculo);
+console.log(`El Valor del Producto en 3 cuotas: $` + cuotas3Producto);
+let cuotas6Producto = cuotas6(sumaCalculo);
+console.log(`El Valor del Producto en 6 cuotas: $` + cuotas6Producto);
+let cuotas12Producto = cuotas12(sumaCalculo);
+console.log(`El Valor del Producto en 12 cuotas: $` + cuotas12Producto);
 let descuentoProducto = descuento(precioProducto);
-console.log("El Descuento es: $" + descuentoProducto);
+console.log(`El Descuento abonando en efectivo/debito es: $` + descuentoProducto);
 let restaCalculo = resta(sumaCalculo, descuentoProducto);
-let calculo = restaCalculo;
-console.log("El valor es: $" + calculo);
+console.log(`El Precio Final con descuento es: $` + restaCalculo);
+let sumaCuotas3 = suma(precioProducto, cuotas3Producto);
+console.log(`El Precio Final en tres cuotas es: $` + sumaCuotas3);
+let sumaCuotas6 = suma(precioProducto, cuotas6Producto);
+console.log(`El Precio Final en seis cuotas es: $` + sumaCuotas6);
+let sumaCuotas12 = suma(precioProducto, cuotas12Producto);
+console.log(`El Precio Final en doce cuotas es: $` + sumaCuotas12);
+let valorCuotas3 = sumaCuotas3 / 3;
+console.log(`El Valor de cada cuota en tres cuotas es: $` + valorCuotas3);
+let valorCuotas6 = sumaCuotas6 / 6;
+console.log(`El Valor de cada cuota en seis cuotas es: $` + valorCuotas6);
+let valorCuotas12 = sumaCuotas12 / 12;
+console.log(`El Valor de cada cuota en doce cuotas es: $` + valorCuotas12);
